@@ -1,0 +1,13 @@
+{% extends "app03/base.html" %}
+
+{%load static%}
+
+{% block titulospestania %} Estudiantes {% endblock%}
+
+{% block contenidodinamico %}
+    <h1>Estos son los estudiantes</h1>
+{% endblock %}
+
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/stylesestudiantes.css'%}" rel="stylesheet" />    
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "app03/base.html" %}
+
+{%load static%}
+
+{% block titulospestania %} Inicio {% endblock %}
+
+{% block contenidodinamico %}
+    <h1>Consultar Comision</h1>
+{% endblock %}
+
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/stylesinicio.css'%}" rel="stylesheet" />
+{% endblock %}
+
+{% block main_consulta_comision %}
+    <form action="" method="GET">
+        <input type="number" name="comision" id="comision">
+        <input type="submit" value="Buscar">
+    </form>
+{% endblock main_consulta_comision %}
+
