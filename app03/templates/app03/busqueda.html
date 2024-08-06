@@ -1,0 +1,34 @@
+{% extends "app03/base.html" %}
+{%load static%}
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/stylesinicio.css'%}" rel="stylesheet" />
+{% endblock %}
+
+
+{% block main_consulta_comision %}
+
+    {% for curso in cursos %}
+        <table>
+            
+            <tr>
+                <th>Nombre Curso</th>
+            <th>Comision</th>
+            </tr> 
+            <tr>
+                <td> {{curso.nombre}} </td>
+                <td>{{curso.comision}}</td>  
+            </tr>
+        </table>
+    {% endfor %}
+    
+<a class="btn btn-primary" href="{% url 'inicio' %}">Volver</a>
+{% endblock main_consulta_comision %}
+
+
+<table>
+    <tr>
+        <th>Nombre</th>
+        <th>Edad</th>
+        <th>País</th>
+    </tr>
+    <tr

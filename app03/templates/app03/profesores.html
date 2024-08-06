@@ -5,9 +5,21 @@
 {% block titulospestania %} Profesores {% endblock%}
 
 {% block contenidodinamico %}
-    <h1>Estos son los profesores</h1>
+    <h1>Agregar Profesores</h1>
 {% endblock %}
 
 {% block cambiostyles %}
     <link href="{% static 'app03/css/stylesprofesores.css'%}" rel="stylesheet" />
 {% endblock %}
+
+{% block main_alta %}
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{mi_formulario.as_table}}
+        </table>
+        
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock main_alta %}

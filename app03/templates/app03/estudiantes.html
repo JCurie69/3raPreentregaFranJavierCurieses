@@ -2,12 +2,26 @@
 
 {%load static%}
 
-{% block titulospestania %} Estudiantes {% endblock%}
+{% block titulospestania %}
+    Estudiantes
+{% endblock%}
 
 {% block contenidodinamico %}
-    <h1>Estos son los estudiantes</h1>
+    <h1>Agregar Estudiantes</h1>
 {% endblock %}
 
 {% block cambiostyles %}
     <link href="{% static 'app03/css/stylesestudiantes.css'%}" rel="stylesheet" />    
 {% endblock %}
+
+{% block main_alta %}
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{mi_formulario.as_table}}
+        </table>
+        
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock main_alta %}

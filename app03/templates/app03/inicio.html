@@ -5,7 +5,7 @@
 {% block titulospestania %} Inicio {% endblock %}
 
 {% block contenidodinamico %}
-    <h1>Consultar Comision</h1>
+    <h1>Consultar Comisión</h1>
 {% endblock %}
 
 {% block cambiostyles %}
@@ -13,7 +13,7 @@
 {% endblock %}
 
 {% block main_consulta_comision %}
-    <form action="" method="GET">
+    <form action="{% url 'buscar' %}" method="GET">
         <input type="number" name="comision" id="comision">
         <input type="submit" value="Buscar">
     </form>

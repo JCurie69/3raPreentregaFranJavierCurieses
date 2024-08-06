@@ -14,7 +14,7 @@
     <link href="{% static 'app03/css/stylescurso.css'%}" rel="stylesheet" />    
 {% endblock %}
 
-{% block main_alta_cursos %}
+{% block main_alta %}
     <form action="" method="POST">
         {% csrf_token %}
 
@@ -24,7 +24,7 @@
         
         <input type="submit" value="Enviar">
     </form>
-{% endblock main_alta_cursos %}
+{% endblock main_alta %}
 
 
 
