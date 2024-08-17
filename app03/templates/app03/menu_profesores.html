@@ -1,0 +1,29 @@
+{% extends "app03/base.html" %}
+
+{%load static%}
+
+
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/stylesprofesores.css'%}" rel="stylesheet" />    
+{% endblock %}
+
+{% block contenidocentral %}
+    <h1>PROFESORES</h1>
+{% endblock %}
+
+{% block contenidodinamico %}
+    <h1>Menú Profesores</h1>
+{% endblock %}
+
+{% block main_profesores %}
+    {% for profesor in profesores %}
+         <P>Nombre: {{profesor.nombre}} | Comision: {{profesor.apellido}} </P>
+         <a href="{% url 'CrearProfesores' %}">Agregar</a>
+         {%if request.user.is_superuser %}
+         <a href="{% url 'ActualizarProfesores' profesor.pk%}">Actualizar</a>
+         <a href="{% url 'BorrarProfesores' profesor.pk%}">Borrar</a>
+         {%endif%}
+         <p></p>
+    {% endfor %}
+
+{% endblock main_profesores %}

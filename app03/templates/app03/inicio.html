@@ -5,7 +5,11 @@
 {% block titulospestania %} Inicio {% endblock %}
 
 {% block contenidodinamico %}
-    <h1>Consultar Comisión</h1>
+    <h1></h1>
+{% endblock %}
+
+{% block contenidocentral %}
+    <h1>PROYECTO FINAL</h1>
 {% endblock %}
 
 {% block cambiostyles %}
@@ -13,9 +17,6 @@
 {% endblock %}
 
 {% block main_consulta_comision %}
-    <form action="{% url 'buscar' %}" method="GET">
-        <input type="number" name="comision" id="comision">
-        <input type="submit" value="Buscar">
-    </form>
+
 {% endblock main_consulta_comision %}
 

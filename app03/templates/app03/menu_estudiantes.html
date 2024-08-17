@@ -1,0 +1,29 @@
+{% extends "app03/base.html" %}
+
+{%load static%}
+
+
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/stylesestudiantes.css'%}" rel="stylesheet" />    
+{% endblock %}
+
+{% block contenidocentral %}
+    <h1>ESTUDIANTES</h1>
+{% endblock %}
+
+{% block contenidodinamico %}
+    <h1>Menú Estudiantes</h1>
+{% endblock %}
+
+{% block main_estudiantes %}
+    {% for estudiante in estudiantes %}
+         <P>Nombre: {{estudiante.nombre}} | Comision: {{estudiante.apellido}} </P>
+         <a href="{% url 'CrearEstudiantes' %}">Agregar</a>
+         {%if request.user.is_superuser %}
+         <a href="{% url 'ActualizarEstudiantes' estudiante.pk%}">Actualizar</a>
+         <a href="{% url 'BorrarEstudiantes' estudiante.pk%}">Borrar</a>
+         {%endif%}
+         <p></p>
+    {% endfor %}
+
+    {% endblock main_estudiantes %}

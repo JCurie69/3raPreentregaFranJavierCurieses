@@ -17,8 +17,10 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         
         {% block cambiostyles %}
-        
         {% endblock %}
+        
+
+     
 
 
         
@@ -27,13 +29,25 @@
         <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
             <div class="container">
-                <a class="navbar-brand" href="{% url 'inicio'%}">Inicio</a>
-                <a class="navbar-brand" href="{% url 'cursos'%}">Cursos</a>
-                <a class="navbar-brand" href="{% url 'estudiantes'%}">Estudiantes</a>
-                <a class="navbar-brand" href="{% url 'profesores'%}">Profesores</a>
-                <a class="navbar-brand" href="{% url 'entregables'%}">Entregables</a>
-                <a class="btn btn-primary" href="#signup">Sign Up</a>
+
+                <a class="navbar-brand" href="{% url 'MenuCursos'%}">Cursos</a>
+                <a class="navbar-brand" href="{% url 'MenuEstudiantes'%}">Estudiantes</a>
+                <a class="navbar-brand" href="{% url 'MenuProfesores'%}">Profesores</a>
+                <a class="navbar-brand" href="{% url 'MenuEntregables'%}">Entregables</a>
+                
+
+                <img src="{{ request.user.avatar.imagen.url}}" alt="" height="40px">
+                {% if request.user.is_authenticated %}
+                    <a class="btn btn-primary" href="{% url 'Logout' %}">Logout</a>
+                    <a class="btn btn-primary" href="{% url 'EditarPerfil' %}">Editar Perfil</a>
+                {% else %}    
+                    <a class="btn btn-primary" href="{% url 'inicio'%}">Inicio</a>
+                    <a class="btn btn-primary" href="{% url 'Login' %}">Login</a>
+                    <a class="btn btn-primary" href="{% url 'Register' %}">Registro</a>
+                
+                {% endif %}
             </div>
+        
         </nav>
         <!-- Masthead-->
         <header class="masthead">
@@ -43,7 +57,7 @@
                         <div class="text-center text-white">
                             <!-- Page heading-->
 
-                            <h1 class="mb-5">TERCERA PRE-ENTGREGA</h1> 
+                            <!-- <h1 class="mb-5">TERCERA PRE-ENTGREGA</h1>--> 
                             {% block contenidocentral %}
         
                             {% endblock %}
@@ -63,102 +77,45 @@
         </header>
 
         {% block contenidodinamico %}
-        
         {% endblock %}
 
         {% block contenidodinamico2 %}
-    
         {% endblock %}
 
+        {% block main_cursos %}
+        {% endblock main_cursos %}
+
+        {% block main_estudiantes %}
+        {% endblock main_estudiantes %}
+
+        {% block main_profesores %}
+        {% endblock main_profesores %}
+
+
+
+
+
         {% block main_alta %}
-    
         {% endblock main_alta %}
 
+        {% block main_borrar %}
+        {% endblock main_borrar %}
+
         {% block main_consulta_comision %}
-    
         {% endblock main_consulta_comision %}
+
+        {% block main_login %}
+        {% endblock main_login%}
+
+        {% block main_registro %}
+        {% endblock main_registro%}
+
 
 
         <!-- Icons Grid-->
-        <section class="features-icons bg-light text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
-                            <h3>Fully Responsive</h3>
-                            <p class="lead mb-0">This theme will look great on any device, no matter the size!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
-                            <h3>Bootstrap 5 Ready</h3>
-                            <p class="lead mb-0">Featuring the latest build of the new Bootstrap 5 framework!</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
-                            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
-                            <h3>Easy to Use</h3>
-                            <p class="lead mb-0">Ready to use with your own content, or customize the source files!</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <!-- Image Showcases-->
-        <section class="showcase">
-            <div class="container-fluid p-0">
-                <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url({% static 'app03/assets/img/bg-showcase-1.jpg'%})"></div>
-                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        <h2>Fully Responsive Design</h2>
-                        <p class="lead mb-0">When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!</p>
-                    </div>
-                </div>
-                <div class="row g-0">
-                    <div class="col-lg-6 text-white showcase-img" style="background-image: url({% static 'app03/assets/img/bg-showcase-2.jpg'%})"></div>
-                    <div class="col-lg-6 my-auto showcase-text">
-                        <h2>Updated For Bootstrap 5</h2>
-                        <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
-                    </div>
-                </div>
-                <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url({% static 'app03/assets/img/bg-showcase-3.jpg'%})"></div>
-                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
-                        <h2>Easy to Use & Customize</h2>
-                        <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- Testimonials-->
-        <section class="testimonials text-center bg-light">
-            <div class="container">
-                <h2 class="mb-5">Profesores y tutores</h2>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="{% static 'app03/assets/img/testimonials-1.jpg'%}" alt="..." />
-                            <h5>Julieta</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="{% static 'app03/assets/img/testimonials-2.jpg'%}" alt="..." />
-                            <h5>Fede</h5>
-                         </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="testimonial-item mx-auto mb-5 mb-lg-0">
-                            <img class="img-fluid rounded-circle mb-3" src="{% static 'app03/assets/img/testimonials-3.jpg'%}" alt="..." />
-                            <h5>Viky</h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         <!-- Call to Action-->
         
         <!-- Footer-->
@@ -169,13 +126,7 @@
                         <ul class="list-inline mb-2">
                             <li class="list-inline-item"><a href="{% url 'inicio'%}">Inicio</a></li>
                             <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="{% url 'cursos'%}">Cursos</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="{% url 'estudiantes'%}">Estudiantes</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="{% url 'profesores'%}">Profesores</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="{% url 'entregables'%}">Entregables</a></li>
+
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2024. Todos los derechos reservados.</p>
                     </div>

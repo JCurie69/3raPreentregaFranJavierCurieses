@@ -1,0 +1,38 @@
+{% extends 'app03/base.html' %}
+
+{% load static %}
+
+
+{% block titulospestania %}
+    Editar Perfil
+{% endblock%}
+
+{% block contenidodinamico %}
+    <h1></h1>
+{% endblock %}
+
+{% block contenidocentral %}
+    <h1>EDICION CONTRASEÑA USUARIO</h1>
+{% endblock %}
+
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/styleslogin.css'%}" rel="stylesheet" />    
+{% endblock %}
+
+{% block main_login %}
+    <div class="d-flex justify-content-center">
+
+        <div class="d-flex flex-column">
+        
+            
+
+            <form action="" method="POST">
+                {% csrf_token%}
+                <table>
+                {{form}}
+                </table>
+                <input type="submit" value = "Actualizar">
+            </form>
+        </div>
+    </div>
+{% endblock main_login%}

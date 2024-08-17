@@ -1,0 +1,29 @@
+{% extends "app03/base.html" %}
+
+{%load static%}
+
+
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/stylescurso.css'%}" rel="stylesheet" />    
+{% endblock %}
+
+{% block contenidocentral %}
+    <h1>CURSOS</h1>
+{% endblock %}
+
+{% block contenidodinamico %}
+    <h1>Menú Cursos</h1>
+{% endblock %}
+
+{% block main_cursos %}
+    {% for curso in cursos %}
+         <P>Nombre: {{curso.nombre}} | Comision: {{curso.comision}} </P>
+         <a href="{% url 'CrearCursos' %}">Agregar</a>
+        {%if request.user.is_superuser %}
+            <a href="{% url 'ActualizarCursos' curso.pk%}">Actualizar</a>
+            <a href="{% url 'BorrarCursos' curso.pk%}">Borrar</a>
+        {%endif%}    
+         <p></p>
+    {% endfor %}
+
+{% endblock main_cursos %}

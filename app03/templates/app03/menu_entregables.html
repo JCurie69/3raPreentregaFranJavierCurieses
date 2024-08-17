@@ -1,0 +1,30 @@
+{% extends "app03/base.html" %}
+
+{%load static%}
+
+
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/stylesentregables.css'%}" rel="stylesheet" />    
+{% endblock %}
+
+{% block contenidocentral %}
+    <h1>ENTREGABLES</h1>
+{% endblock %}
+
+{% block contenidodinamico %}
+    <h1>Menú Entregables</h1>
+{% endblock %}
+
+{% block main_cursos %}
+    {% for entregable in entregables %}
+        
+         <P>Nombre: {{entregable.nombre}} | Fecha de entrega: {{entregable.fecha_de_entrega}} {{entregable.entregado}}</P>
+         <a href="{% url 'CrearEntregables' %}">Agregar</a>
+         {%if request.user.is_superuser %}
+            <a href="{% url 'ActualizarEntregables' entregable.pk%}">Actualizar</a>
+            <a href="{% url 'BorrarEntregables' entregable.pk%}">Borrar</a>
+         {%endif%}   
+         <p></p>
+    {% endfor %}
+
+{% endblock main_cursos %}

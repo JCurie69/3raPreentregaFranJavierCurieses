@@ -1,0 +1,28 @@
+{% extends "app03/base.html" %}
+
+{% load static %}
+
+{% block titulospestania %}
+    Cursos
+{% endblock%}
+
+{% block contenidodinamico %}
+    <h1>Borrar Cursos</h1>
+{% endblock %}
+
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/stylescurso.css'%}" rel="stylesheet" />    
+{% endblock %}
+
+{% block main_borrar %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'MenuCursos'%}">Volver</a>
+        <p>Estás seguro que querés borrar el curso?: {{curso.nombre}}</p>
+        <input type="submit" value="Borrar">
+    </form>
+{% endblock main_borrar %}
+
+
+
+

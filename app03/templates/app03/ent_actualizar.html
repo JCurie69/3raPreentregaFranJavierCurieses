@@ -1,0 +1,27 @@
+{% extends "app03/base.html" %}
+
+{% load static %}
+
+{% block titulospestania %}
+    Estudiantes
+{% endblock%}
+
+{% block contenidodinamico %}
+    <h1>Actualizar Entregables</h1>
+{% endblock %}
+
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/stylescurso.css'%}" rel="stylesheet" />    
+{% endblock %}
+
+{% block main_alta %}
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <table>
+            {{form.as_table}}
+        </table>
+        
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock main_alta %}

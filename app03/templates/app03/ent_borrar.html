@@ -1,0 +1,24 @@
+{% extends "app03/base.html" %}
+
+{% load static %}
+
+{% block titulospestania %}
+    Entregables
+{% endblock%}
+
+{% block contenidodinamico %}
+    <h1>Borrar Entregables</h1>
+{% endblock %}
+
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/stylescurso.css'%}" rel="stylesheet" />    
+{% endblock %}
+
+{% block main_borrar %}
+    <form action="" method="POST">
+        {% csrf_token %}
+        <a href="{% url 'MenuEntregables'%}">Volver</a>
+        <p>Estás seguro que querés borrar el registro de entrega?: {{entregable.nombre}} {{entregable.fecha_de_entrega}} {{entregable.entregado}}</p>
+        <input type="submit" value="Borrar">
+    </form>
+{% endblock main_borrar %}

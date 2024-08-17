@@ -1,0 +1,37 @@
+{% extends 'app03/base.html' %}
+
+{% load static %}
+
+
+{% block titulospestania %}
+    Registro
+{% endblock%}
+
+{% block contenidodinamico %}
+    <h1></h1>
+{% endblock %}
+
+{% block contenidocentral %}
+    <h1>REGISTRO USUARIOS</h1>
+{% endblock %}
+
+{% block cambiostyles %}
+    <link href="{% static 'app03/css/stylescurso.css'%}" rel="stylesheet" />    
+{% endblock %}
+
+{% block main_registro %}
+    <div class="d-flex justify-content-center">
+
+        <div class="d-flex flex-column">
+        
+            <p class="fs-5 fw-bold">{{msg_register}} </p>
+
+            <form action="" method="POST">
+                {% csrf_token%}
+
+                {{form.as_p}}
+                <input type="submit" value = "Registrarse">
+            </form>
+        </div>
+    </div>
+{% endblock main_registro%}
